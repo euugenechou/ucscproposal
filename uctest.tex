@@ -9,7 +9,7 @@
 % imply that anyone provides support for your modified version, you may
 % distribute it under any license you wish.
 
-\documentclass[11pt]{ucscthesis}
+\documentclass[11pt]{ucscproposal}
 \def\dsp{\def\baselinestretch{2.0}\large\normalsize}
 \dsp
 
@@ -17,8 +17,12 @@
 % package geometry should override the various margin settings from .clo and .cls
 % and also eliminates issues where the default papersize is A4
 \usepackage[letterpaper, left=1.5in, right=1.25in, top=1.25in, bottom=1.25in, includefoot]{geometry}
+
 % Use PostScript fonts as required by UCSC Dissertation Preparation Guidelines
 \usepackage{pslatex}
+
+% Won't build without this.
+\usepackage[hidelinks]{hyperref}
 
 \begin{document}
 
@@ -28,29 +32,17 @@
 \author{Perry H. Disdainful}
 \degreeyear{1994}
 \degreemonth{March}
-\degree{DOCTOR OF PHILOSOPHY}
-\chair{Professor Ignatius Arrogant}
-\committeememberone{Professor Ivory Insular}
-\committeemembertwo{Professor General Reference}
-\committeememberthree{Professor Ipsum Lorem}
-\numberofmembers{4} %% (including chair) possible: 3, 4, 5, 6
-\deanlineone{Dean John Doe}
-\deanlinetwo{Vice Provost and Dean of Graduate Studies}
-\deanlinethree{}
 \field{Indigineous Peoples Basketry}
 \campus{Santa Cruz}
 
 \begin{frontmatter}
 
-\maketitle
-\copyrightpage
+  \maketitle
+  \copyrightpage
+  \tableofcontents
 
-\tableofcontents
-\listoffigures
-\listoftables
-
-\begin{abstract}
-Theses have elements.  Isn't that nice?
+  \begin{abstract}
+    Theses have elements.  Isn't that nice?
 
 \end{abstract}
 
@@ -83,7 +75,7 @@ and goals of the dissertation.
 
 \begin{table}
 \begin{tabular}{|l|r|}
-  \hline 
+  \hline
 Title & Author \\
 \hline
 War And Peace & Leo Tolstoy \\
@@ -97,7 +89,7 @@ indicates that they should be.}
 \begin{table}
 \caption{A small table.}
 \begin{scriptsizetabular}{|l|r|}
-  \hline 
+  \hline
 Title & Author \\
 \hline
 War And Peace & Leo Tolstoy \\
@@ -123,7 +115,7 @@ Some other research was once performed.
 \chapter{Some Ancillary Stuff}
 
 Ancillary material should be put in appendices, which appear BEFORE the
-bibliography. 
+bibliography.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % bibliography

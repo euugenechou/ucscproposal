@@ -1,25 +1,24 @@
-
 %% ucscproposal.cls
 %% See accompanying LICENSE file for licensing, history, and copyright
 %% information.
 
 % This line is required for LPPL compliance.
-\message{You are using a modified ucscthesis.cls}
+\message{You are using a modified ucscproposal.cls}
 
 %%% ====================================================================
 %%%  @LaTeX-class-file{
-%%%     filename        = "ucscthesis.cls",
+%%%     filename        = "ucscproposal.cls",
 %%%     version         = "3.2-ucsc-4",
-%%%     date            = "29 March 2017",
+%%%     date            = "8 August 2022",
 %%%     license         = "LPPL",
 %%%     codetable       = "ISO/ASCII",
-%%%     keywords        = "LaTeX, ucscthesis",
-%%%     docstring       = "LaTeX template for UCSC thesises and proposals"
+%%%     keywords        = "LaTeX, ucscproposal",
+%%%     docstring       = "LaTeX template for UCSC proposals"
 %%%  }
 %%% ====================================================================
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ucscproposal}[2017/03/29 v3.2-ucsc-4 University of California Santa Cruz Thesis Class]
+\ProvidesClass{ucscproposal}[2022/08/22 v3.2-ucsc-4 University of California Santa Cruz Proposal Class]
 
 %    ****************************************
 %    *               OPTIONS                *

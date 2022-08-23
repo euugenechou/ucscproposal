@@ -1,4 +1,5 @@
-%% ucscthesis.cls
+
+%% ucscproposal.cls
 %% See accompanying LICENSE file for licensing, history, and copyright
 %% information.
 
@@ -18,7 +19,7 @@
 %%% ====================================================================
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ucscthesis}[2017/03/29 v3.2-ucsc-4 University of California Santa Cruz Thesis Class]
+\ProvidesClass{ucscproposal}[2017/03/29 v3.2-ucsc-4 University of California Santa Cruz Thesis Class]
 
 %    ****************************************
 %    *               OPTIONS                *
@@ -39,7 +40,6 @@
 \DeclareOption{proposal}{\renewcommand\@proposalmark{1}}
 \DeclareOption{dissertation}{\renewcommand\@proposalmark{0}}
 \ExecuteOptions{11pt,oneside,final,dissertation}
-
 
 % CHOOSING THE TYPE SIZE:
 %
@@ -62,7 +62,7 @@
 % version.  To break this dependency, I have made \ds@draft set a marker
 % which is later tested to determine whether to actually do the draft
 % mode actions.
-% 
+%
 % Ethan Munson (October 16, 1992)
 
 % FMi 91/03/30: made twocolum.sty a file and twocolumn an option.
@@ -73,7 +73,7 @@
 
 % The \ProcessOptions command causes the execution of every option command
 % FOO which is declared and for which the user typed the FOO option in his
-% \documentclass.  For every undeclared option BAR there will be a warning 
+% \documentclass.  For every undeclared option BAR there will be a warning
 % message. (BBF 10/31/94)
 
 \ProcessOptions
@@ -101,10 +101,10 @@
 \overfullrule 5pt		  % causes overfull hboxes to be marked.
 \fi
 
-% Thesis/Proposal option. If we're a "proposal", we should say that and not 
+% Thesis/Proposal option. If we're a "proposal", we should say that and not
 % "dissertation" where applicable.
-\def\dissertationname{dissertation}
-\def\Dissertationname{Dissertation}
+\def\dissertationname{thesis}
+\def\Dissertationname{Thesis}
 \ifnum \@proposalmark = 1
 \def\dissertationname{proposal}
 \def\Dissertationname{Proposal}
@@ -180,7 +180,7 @@
 % DECLARATIONS
 %
 % These macros are used to declare arguments needed for the
-% construction of the front matter.  
+% construction of the front matter.
 
 % The year the degree will be officially conferred
 \def\degreeyear#1{\gdef\@degreeyear{#1}}
@@ -231,7 +231,7 @@
 
 % \alwayssingle and \endalwayssingle
 %
-% These macros define an environment for front matter that is always 
+% These macros define an environment for front matter that is always
 % single column even in a double-column document.
 
 \def\alwayssingle{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
@@ -240,7 +240,7 @@
 \def\endalwayssingle{\if@restonecol\twocolumn \else \newpage \fi}
 
 % \maketitle outputs the complete titlepage.  It requires all the
-% above macros except \campuscap.  It is probably not correct for 
+% above macros except \campuscap.  It is probably not correct for
 % joint (e.g. UCSD/SDSU) degrees.
 
 % Set the font that will be used in the front matter headings
@@ -254,26 +254,22 @@
     \let\footnoterule\relax
     {\setcounter{page}{1}\renewcommand{\thepage}{\roman{page}}}
     \thispagestyle{empty}
-	
-	% extend down to the page number area (UCSC), which is 1.25in 
+
+	% extend down to the page number area (UCSC), which is 1.25in
 	% from the bottom
 	\enlargethispage{\footskip}
 
 %    \null\vfil
   \begin{center}
+    \vspace*{\fill}
     \fmfont
     UNIVERSITY OF CALIFORNIA \par
     \smallskip
     {\expandafter\uppercase\expandafter{\@campus}} \par
-    \bigskip
+    \vspace{60pt}
     {\bfseries {\expandafter\uppercase\expandafter{\@title}} \par}
-    \medskip
-    A \dissertationname{} submitted in partial satisfaction of the \par
-    requirements for the degree of \par
-    \bigskip
-    {\expandafter\expandafter{\@degree}} \par
-    \bigskip
-    in \par
+    \vspace{60pt}
+    A proposal submitted for the advancement to candidacy in \par
     \bigskip
     {\expandafter\uppercase\expandafter{\@field}} \par
     \bigskip
@@ -282,47 +278,9 @@
     {\bfseries \@author} \par
     \bigskip
     {\@degreemonth} {\@degreeyear} \par
+    \vspace*{\fill}
   \end{center}
 \setcounter{footnote}{0}
-
-\vfill
-\begin{center}
-\fmfont
-\hfill \parbox{3in}{
-    The \Dissertationname{} of {\@author}\\ is approved:
-} \\
-\bigskip \bigskip
-\hfill\rule{2.6in}{0.5pt}\\
-\hfill\makebox[2.6in][l]{\@chair, Chair }\\
-\bigskip \medskip
-\hfill\rule{2.6in}{0.5pt}\\
-\hfill\makebox[2.6in][l]{\@committeememberone}\\
-\bigskip \smallskip
-\hfill\rule{2.6in}{0.5pt}\\
-\hfill\makebox[2.6in][l]{\@committeemembertwo}\\
-\bigskip \smallskip
-\ifnum \@numberofmembers > 3
-\hfill\rule{2.6in}{0.5pt}\\
-\hfill\makebox[2.6in][l]{\@committeememberthree}\\
-\bigskip \smallskip
-\fi
-\ifnum \@numberofmembers > 4
-\hfill\rule{2.6in}{0.5pt}\\
-\hfill\makebox[2.6in][l]{\@committeememberfour}\\
-\bigskip \smallskip
-\fi
-\ifnum \@numberofmembers > 5
-\hfill\rule{2.6in}{0.5pt}\\
-\hfill\makebox[2.6in][l]{\@committeememberfive}\\
-\bigskip \smallskip
-\fi
-\end{center}
-\noindent\noindent
-\rule{2.85in}{0.5pt}\\
-\fmfont
-\makebox[3in][l]{\@deanlineone}\\
-\makebox[3in][l]{\@deanlinetwo}\\
-\makebox[3in][l]{\@deanlinethree}\\
 \end{alwayssingle}
 }}
 
@@ -337,26 +295,27 @@
 \thispagestyle{empty}
 \begin{center}
 {\fmfont
-\ \ \ \ 
+\ \ \ \
 \vfill
 Copyright \copyright\ by\par
 \@author \par
 \@degreeyear \par}
 \vfill
-\ \ \ \ \ 
+\ \ \ \ \
 \end{center}
 \end{alwayssingle}}
 
 % ABSTRACT
 %
 % The ABSTRACT environment allows for multi-page abstracts which,
-% in accordance with UCSC rules, is numbered along with other front 
-% matter pages in Roman numerals. It requires definition% of the 
+% in accordance with UCSC rules, is numbered along with other front
+% matter pages in Roman numerals. It requires definition% of the
 % \title, \author, \degree, \field, \campus, and \chair macros.
 
 
 \def\abstract{
 \begin{alwayssingle}
+\phantomsection
 \addcontentsline{toc}{chapter}{\abstractname}
 \begin{center}
 {\fmfont
@@ -379,16 +338,18 @@ by\par
 
 \newenvironment{dedication}
 {\begin{alwayssingle}
+\phantomsection
 \addcontentsline{toc}{chapter}{\dedicationname}}
 {\end{alwayssingle}}
 
 % ACKNOWLEDGEMENTS
 %
-% The acknowledgements environment puts a large, bold, centered 
+% The acknowledgements environment puts a large, bold, centered
 % "Acknowledgements" label at the top of the page.
 
 \newenvironment{acknowledgements}
 {\begin{alwayssingle}
+\phantomsection
 \addcontentsline{toc}{chapter}{\acknowledgename}
 \begin{center}
 {\large \bfseries \acknowledgename}
@@ -540,9 +501,9 @@ by\par
 {\par\ssp\def\@halignto{to#1}\@tabular}
 
 % \smalltabular and \smalltabular* are alternative tabular styles
-% in the \small font.  They are required because single-spacing implies a 
+% in the \small font.  They are required because single-spacing implies a
 % change of font to a particular size.
-% EVM, 7/20/93 
+% EVM, 7/20/93
 \def\smalltabular{\par\smallssp\let\@halignto\@empty\@tabular}
 \def\endsmalltabular{\endtabular}
 \expandafter \def\csname smalltabular*\endcsname #1%
@@ -947,7 +908,7 @@ by\par
    \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
     {\rule{\z@}{\footnotesep}\ignorespaces
       #1\strut}}}
- 
+
 %    ****************************************
 %    *         FIGURES AND TABLES           *
 %    ****************************************
@@ -983,7 +944,7 @@ by\par
 
 \long\def\@makecaption#1#2{% Add space only if something is ...
    \par\ifdim\prevdepth>-\p@ \vskip 10\p@\relax \fi % above the caption
-   \setbox\@tempboxa\hbox{\vbox to\topskip{}#1: #2\unskip\strut}% 
+   \setbox\@tempboxa\hbox{\vbox to\topskip{}#1: #2\unskip\strut}%
    \ifdim \wd\@tempboxa >\hsize      % IF longer than one line:
        {\ssp#1: #2\unskip\strut\par} %   THEN set as ordinary paragraph.
      \else                           %   ELSE  center.
